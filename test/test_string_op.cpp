@@ -11,5 +11,6 @@ TEST_CASE("Test String Operations", "[string_op]") {
     REQUIRE(string_op::split<string>("abc", ",") == vector<string>{"abc"});
     REQUIRE(string_op::split<string>(",ONE,,TWO,,,THREE", ",") ==
             vector<string>{"", "ONE", "", "TWO", "", "", "THREE"});
+    REQUIRE(string_op::split<string>("abc", "") == vector<string>{"abc"});
   }
 }
