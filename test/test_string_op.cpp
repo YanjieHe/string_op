@@ -14,4 +14,8 @@ TEST_CASE("Test String Operations", "[string_op]") {
     REQUIRE(string_op::split<string>("abc", "") == vector<string>{"abc"});
     REQUIRE(string_op::split<string>("", ",") == vector<string>{""});
   }
+
+  SECTION("Test Starts With") {
+    REQUIRE(string_op::starts_with<string>("apple", "app") == true);
+  }
 }

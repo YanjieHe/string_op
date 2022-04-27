@@ -28,6 +28,27 @@ inline std::vector<StringType> split(const StringType &s,
   }
 }
 
+template <class StringType>
+inline bool starts_with(const StringType &s, const StringType &value) {
+  if (value.size() <= s.size()) {
+    typename StringType::const_iterator value_iter = value.begin();
+    typename StringType::const_iterator s_iter = s.begin();
+
+    while (value_iter != value.end()) {
+      if (*s_iter != *value_iter) {
+        return false;
+      } else {
+        s_iter++;
+        value_iter++;
+      }
+    }
+
+    return true;
+  } else {
+    return false;
+  }
+}
+
 }; /* namespace string_op */
 
 #endif /* STRING_OP_HPP */
