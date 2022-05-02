@@ -49,6 +49,27 @@ inline bool starts_with(const StringType &s, const StringType &value) {
   }
 }
 
+template <class StringType>
+inline bool ends_with(const StringType &s, const StringType &value) {
+  if (value.size() <= s.size()) {
+    typename StringType::const_reverse_iterator value_iter = value.rbegin();
+    typename StringType::const_reverse_iterator s_iter = s.rbegin();
+
+    while (value_iter != value.rend()) {
+      if (*s_iter != *value_iter) {
+        return false;
+      } else {
+        s_iter++;
+        value_iter++;
+      }
+    }
+
+    return true;
+  } else {
+    return false;
+  }
+}
+
 }; /* namespace string_op */
 
 #endif /* STRING_OP_HPP */

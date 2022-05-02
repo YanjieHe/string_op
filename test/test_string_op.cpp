@@ -19,4 +19,9 @@ TEST_CASE("Test String Operations", "[string_op]") {
     REQUIRE(string_op::starts_with<string>("apple", "app") == true);
     REQUIRE(string_op::starts_with<string>("app", "apple") == false);
   }
+
+  SECTION("Test Ends With") {
+    REQUIRE(string_op::ends_with<string>("watermelon", "melon") == true);
+    REQUIRE(string_op::ends_with<string>("watermelon", "water") == false);
+  }
 }
