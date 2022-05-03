@@ -18,10 +18,12 @@ TEST_CASE("Test String Operations", "[string_op]") {
   SECTION("Test Starts With") {
     REQUIRE(string_op::starts_with<string>("apple", "app") == true);
     REQUIRE(string_op::starts_with<string>("app", "apple") == false);
+    REQUIRE(string_op::starts_with<string>("", "") == true);
   }
 
   SECTION("Test Ends With") {
     REQUIRE(string_op::ends_with<string>("watermelon", "melon") == true);
     REQUIRE(string_op::ends_with<string>("watermelon", "water") == false);
+    REQUIRE(string_op::ends_with<string>("", "") == true);
   }
 }
