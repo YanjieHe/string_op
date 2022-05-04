@@ -70,6 +70,26 @@ inline bool ends_with(const StringType &s, const StringType &value) {
   }
 }
 
+template <class StringType>
+inline StringType replace(const StringType &s, const StringType &old_value,
+                          const StringType &new_value) {
+  typename StringType::size_type pos1 = 0;
+  typename StringType::size_type pos2;
+
+  StringType result;
+  pos2 = s.find(old_value, pos1);
+
+  while (pos2 != StringType::npos) {
+    result += s.substr(pos1, pos2 - pos1);
+    pos1 = pos2 + old_value.size();
+    result += new_value;
+    pos2 = s.find(old_value, pos1);
+  }
+
+  result += s.substr(pos1);
+  return result;
+}
+
 }; /* namespace string_op */
 
 #endif /* STRING_OP_HPP */

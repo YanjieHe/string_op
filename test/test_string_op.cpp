@@ -26,4 +26,9 @@ TEST_CASE("Test String Operations", "[string_op]") {
     REQUIRE(string_op::ends_with<string>("watermelon", "water") == false);
     REQUIRE(string_op::ends_with<string>("", "") == true);
   }
+
+  SECTION("Test Replace") {
+    REQUIRE(string_op::replace<string>("A[OLD]B[OLD]C[OLD]", "[OLD]",
+                                       "[NEW]") == "A[NEW]B[NEW]C[NEW]");
+  }
 }
