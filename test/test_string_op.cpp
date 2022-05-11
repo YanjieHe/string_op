@@ -31,4 +31,8 @@ TEST_CASE("Test String Operations", "[string_op]") {
     REQUIRE(string_op::replace<string>("A[OLD]B[OLD]C[OLD]", "[OLD]",
                                        "[NEW]") == "A[NEW]B[NEW]C[NEW]");
   }
+
+  SECTION("Test Concat") {
+    REQUIRE(string_op::concat<string>({"ABC", "DEF", "GHI"}) == "ABCDEFGHI");
+  }
 }

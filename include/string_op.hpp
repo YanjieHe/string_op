@@ -90,6 +90,22 @@ inline StringType replace(const StringType &s, const StringType &old_value,
   return result;
 }
 
+template <class StringType>
+inline StringType concat(const std::vector<StringType> &values) {
+  size_t n = 0;
+  for (const auto &value : values) {
+    n += value.size();
+  }
+  StringType result;
+  result.reserve(n);
+  for (const auto &value : values) {
+    for (const auto &character : value) {
+      result.push_back(character);
+    }
+  }
+  return result;
+}
+
 }; /* namespace string_op */
 
 #endif /* STRING_OP_HPP */
