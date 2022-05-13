@@ -106,6 +106,29 @@ inline StringType concat(const std::vector<StringType> &values) {
   return result;
 }
 
+template <class StringType>
+inline StringType join(const StringType &separator,
+                       const std::vector<StringType> &values) {
+  if (values.empty()) {
+    return StringType();
+  } else {
+    size_t n = 0;
+    for (const auto &value : values) {
+      n += value.size();
+    }
+    n += (values.size() - 1) * separator.size();
+
+    StringType result;
+    result.reserve(n);
+    result += values.front();
+    for (size_t i = 1; i < values.size(); i++) {
+      result += separator;
+      result += values.at(i);
+    }
+    return result;
+  }
+}
+
 }; /* namespace string_op */
 
 #endif /* STRING_OP_HPP */

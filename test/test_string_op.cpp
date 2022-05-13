@@ -35,4 +35,12 @@ TEST_CASE("Test String Operations", "[string_op]") {
   SECTION("Test Concat") {
     REQUIRE(string_op::concat<string>({"ABC", "DEF", "GHI"}) == "ABCDEFGHI");
   }
+
+  SECTION("Test Join") {
+    REQUIRE(string_op::join<string>("||", {"ABC", "DEF", "GHI"}) ==
+            "ABC||DEF||GHI");
+    REQUIRE(string_op::join<string>("", {"ABC", "DEF", "GHI"}) == "ABCDEFGHI");
+    REQUIRE(string_op::join<string>("||", {}) == "");
+    REQUIRE(string_op::join<string>("||", {"ABC"}) == "ABC");
+  }
 }
